@@ -1,0 +1,136 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+#
+# a=np.array([2,3,4,5])
+# b=np.arange(4)
+#
+# c=a+b
+# print(c)
+# d=np.sqrt(b)
+# print(d)
+# e=d+c
+# print(e)
+# f=np.arange(12).reshape((3,4))
+# print(f)
+# print(f.sum(axis=8))
+# print(f.sum(axis=1))
+# print(f.cussum(axis(1)))
+
+# a=np.arange(3)
+# b=np.arange(3)
+# print(np.dot(a,b))
+# print(a.dot(b))
+# c=np.arange(3)
+# d=np.array([[1],[2],[3]])
+# print(c.dot(d))
+# e=np.array([[1,4,7],[4,6,5]])
+# f=np.array([[2,3],[4,5],[10,33]])
+# print(e.dot(f))
+
+# a=np.arange(6).reshape((3,2))
+# print(a.flat)
+# for b in a :
+#     for c in b:
+#         print(c)
+#
+# for d in a.flat:
+#     print(d)
+
+# a=np.arange(12).reshape(3,4)
+# print(a)
+# b=a.reshape((4,3))
+# print(b)
+# c=b.ravel()
+# print(c)
+# d=b.T
+# print(d)
+
+# s=pd.Series([1,4,5,3,5,2,'a'])
+# print(s)
+# s=pd.Series([12,33,4], index=['a','b','c'])
+# print(s)
+#
+# data={'Kraj':['Belgia','Indie','Brazylia'],
+#       'Staolica':['Bruksela', 'New Delhi','Brasilia'],
+#       'Populacja':[2137,1132,22222]}
+# df=pd.DataFrame(data)
+# print(df)
+#
+#
+# daty=pd.rate_range('20221201', periods=5)
+# df2=pd.DataFrame(np.random.randn(5,4), index=daty, column=list('ABCD'))
+# print(df2)
+
+# df3=pd.read_csv('dane.csv',header=0,sep=';',decimal='.')
+# print(df3)
+# xlsx=pd.ExcelFile('imiona.xlsx')
+# df4=pd.read_excel(xlsx, header=0)
+# print(df4)
+df3.to_csv('dane2.csv', index=False)
+# df4.to_excel('imiona2.xlsx', sheet_name='dane')
+# print(df4.head(10))
+# print(df4.tail(10))
+# print(df4.sample(5))
+# print(df.sample(4, replace=False))
+
+# print(s['a']) # wartość elementu przypisanego do tego indesku
+# print(s.a) # wartość elementu przypisanego do tego indesku (drugi sposób)
+# print(df[0:2]) # wyswietlenie odpowiednich wieszy
+# print(df['kraj'])
+# print(df.kraj)
+# print(df.iloc[[0],[0]])
+# print(df.loc[[0], 'kraj'])
+# print(df.at[0,'kraj'])
+# print(s['a'])
+# print(s[s > 10])
+# print(s[(s<10)&(s>8)]
+# print(s.where(s > 10,'warunek niespelniony'))
+# s.where(s>10,'warunek niespelniony',inplace=True)
+# print(s)
+# print(df['Kraj'])
+# print(df[df['Populacja'] > 1200])
+
+# s['e']=14
+# print(s)
+# df.loc[3]='nowy element'
+# print(df)
+# df.loc[4]=['Polska', 'Bydgoszcz',38000000]
+# print(df)
+#
+# new=df.drop([3])
+# print(new)
+# df.drop([3], inplace=True)
+# print(df)
+# df['Kontynent'] = ['Europa','Azja','Ameryka Pld','Europa']
+# print(df)
+#
+# df.sort_values(by='Kraj', inplace=True)
+# print(df)
+#grupa=df.groupby(by='Kontynent')
+# print(grupa.get_group('Europa'))
+# grupa1=df.groupby('Kontynent').agg({'Populacja':['sum']})
+# print(grupa1)
+# grupa.plot(kind='bar',xlabel='Kontynent', ylabel='Populacja', rot=0,title='populacja na kontynentach')
+# plt.show()
+
+# wykres=grupa.plot.bar()
+# wykres.set_xlabel('Kontynent')
+# wykres.set_ylabel('Populacja')
+# wykres.tick_params(axis='x',labelrotation=0)
+# wykres.set_title('Populacja')
+# plt.savefig('plot1.png')
+# plt.show()
+
+# grupa=df3.groupby('Imie i nazwisko').agg({'Wartosc zamowienia':['sum']})
+# print(grupa)
+# grupa.plot(kind='pie',suplots=True, autopct='%.2f %%', fontsize=20, figsize=(8,8), colors=['red','green'])
+# plt.legend(loc='uper left')
+# plt.show()
+
+seria=pd.Series(np.random.randn(1000))
+seria = seria.cumsum()
+
+seria.plot()
+plt.show()
+
