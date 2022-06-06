@@ -1,0 +1,11 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+width=0.25
+i=np.arange(0,6)
+wartosci=[20,50,10,50,40,5]
+plt.bar(i,wartosci, width, color=['red','yellow','pink','orange','blue','green'])
+plt.xticks(i,('A','B','C','D','E','F'))
+plt.ylabel('Wartość')
+plt.title('Wykres słupkowy')
+plt.show()
