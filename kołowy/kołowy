@@ -1,0 +1,5 @@
+import matplotlib.pyplot as plt
+wartosci=[10,50,30,10]
+plt.pie(wartosci, explode=[0,0.1,0,0],labels=['A','B','C','D'],autopct='%1.1f%%', shadow='True')
+plt.legend()
+plt.show()
