@@ -1,0 +1,19 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+df=pd.read_excel('mieszkania1.xlsx')
+df=pd.DataFrame(df)
+###
+df1=df['Wartość'].value_counts() #zlicza ilość wystąpień
+df2=df['Wartość'].value_counts(normalize=True) #ilość wystąpień procentowo
+df3=df['Formy budownictwa'].value_counts() #zlicza ilość poszczególnych wartości np. indywidualne=4
+df4=df.groupby(['Formy budownictwa']) #samo stworzenie grupowania
+df5=df4.get_group('indywidualne')  #wyłonienie wierszy o podanej nazwie z grupowania
+filtr=df['Formy budownictwa']=='indywidualne'
+df6=df.loc[filtr]['Wartość'].value_counts() #Kazda wartosc w indywidualne i ilosc ich wystapien
+
+rok=df['Rok'].groupby(df['Rok'])
+print(rok)
+dfind=df[df['Formy budownictwa']=='indywidualne']
+dfsp=df[df['Formy budownictwa']=='spółdzielcze']
+dfkom=df[df['Formy budownictwa']=='komunalne']
